@@ -1,0 +1,62 @@
+<table cdk-table #table [dataSource]="tableDataSource$" class="table table-striped">
+
+  <!-- Hero Name Column -->
+  <ng-container cdkColumnDef="name">
+    <th cdk-header-cell *cdkHeaderCellDef> Hero Name </th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.name}} </td>
+    <!-- no footer -->
+  </ng-container>
+
+  <ng-container cdkColumnDef="types">
+    <th cdk-header-cell *cdkHeaderCellDef> Types </th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.types}} </td>
+    <!-- no footer -->
+  </ng-container>
+
+  <ng-container cdkColumnDef="attack">
+    <th cdk-header-cell *cdkHeaderCellDef>Attack</th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.attack}} </td>
+    <!-- no footer -->
+  </ng-container>
+
+  <ng-container cdkColumnDef="defense">
+    <th cdk-header-cell *cdkHeaderCellDef>Defense</th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.name}} </td>
+    <!-- no footer -->
+  </ng-container>
+
+  <ng-container cdkColumnDef="speed">
+    <th cdk-header-cell *cdkHeaderCellDef>Speed</th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.speed}} </td>
+    <!-- no footer -->
+  </ng-container>
+
+  <ng-container cdkColumnDef="healing">
+    <th cdk-header-cell *cdkHeaderCellDef>Healing</th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.healing}} </td>
+    <!-- no footer -->
+  </ng-container>
+
+  <ng-container cdkColumnDef="recovery">
+    <th cdk-header-cell *cdkHeaderCellDef> Hero Name </th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.recovery}} </td>
+    <!-- no footer -->
+  </ng-container>
+
+  <ng-container cdkColumnDef="health">
+    <th cdk-header-cell *cdkHeaderCellDef> Hero Name </th>
+    <td cdk-cell *cdkCellDef="let row"> {{row.health}} </td>
+    <!-- no footer -->
+  </ng-container>
+
+  <!-- Level Up Column -->
+  <ng-container cdkColumnDef="levelUp">
+    <th cdk-header-cell *cdkHeaderCellDef></th>
+    <td cdk-cell *cdkCellDef="let row">
+      <button (click)="levelUp(row.name)">Level Up!!!</button>
+    </td>
+  </ng-container>
+
+  <!-- Header and Row Declarations -->
+<tr cdk-header-row *cdkHeaderRowDef="displayedColumns$.value"></tr>
+<tr cdk-row *cdkRowDef="let row; columns: displayedColumns$.value"></tr>
